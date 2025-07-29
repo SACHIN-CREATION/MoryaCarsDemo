@@ -1,0 +1,49 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.main-content {
+  margin-left: 80px;
+  flex: 1;
+  transition: margin 0.3s ease;
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.page-content {
+  flex: 1;
+  padding: 20px;
+  background: #f5f5f5;
+  transition: margin 0.3s ease;
+}
+
+/* Sidebar widths */
+.sidebar {
+  width: 80px;
+  transition: width 0.3s ease;
+}
+
+.sidebar.expanded {
+  width: 250px;
+}
+
+/* Layout shifts when sidebar is expanded or collapsed */
+.layout.sidebar-expanded .main-content {
+  margin-left: 250px;
+}
+
+.layout.sidebar-collapsed .main-content {
+  margin-left: 80px;
+}
+
+@media (max-width: 768px) {
+
+   .main-content {
+    margin-left: 20px;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+
+}

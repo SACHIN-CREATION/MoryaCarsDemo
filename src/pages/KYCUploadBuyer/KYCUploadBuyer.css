@@ -1,0 +1,105 @@
+/* ===== KYC Upload Buyers Page ===== */
+.kyc-upload-page {
+  background: linear-gradient(135deg, #121212, #1a1a1a);
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+/* ===== Page Heading ===== */
+.kyc-upload-page h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  background: linear-gradient(to right, #d4af37, #f9e076);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 1px;
+}
+
+/* ===== KYC Form ===== */
+.kyc-form {
+  background: rgba(30, 30, 30, 0.75);
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.kyc-form label {
+  display: block;
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: #f1f1f1;
+  font-size: 1rem;
+}
+
+.kyc-form input[type="text"],
+.kyc-form input[type="file"] {
+  width: 100%;
+  padding: 14px 15px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1rem;
+  margin-top: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.kyc-form input[type="file"]::file-selector-button {
+  background: linear-gradient(135deg, #d4af37, #a67c00);
+  color: #121212;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.kyc-form input:focus {
+  outline: none;
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+/* ===== Submit Button ===== */
+.kyc-form button[type="submit"] {
+  background: linear-gradient(135deg, #d4af37, #a67c00);
+  color: #121212;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin: 30px auto 0;
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+  transition: all 0.3s ease;
+}
+
+.kyc-form button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .kyc-form {
+    padding: 20px;
+  }
+
+  .kyc-upload-page h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+
+
+/* //////////////// */
