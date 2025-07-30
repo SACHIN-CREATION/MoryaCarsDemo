@@ -81,7 +81,8 @@ const DashboardExecutive = () => {
         </div>
         <button
           className="add-car-button"
-          onClick={() => (window.location.href = '/executive/add-car')}
+{/*           onClick={() => (window.location.href = '/executive/add-car')} */}
+          onClick={() => navigate('/executive/add-car')}
         >
           <span>+</span> Add New Car
         </button>
