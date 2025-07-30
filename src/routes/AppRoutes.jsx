@@ -22,7 +22,7 @@ function AppRoutes() {
     // <BrowserRouter>
     <Routes>
       {/* Public Route */}
-      <Route path="/" element={<Login />} />
+      <Route path="/MoryaCarsDemo/" element={<Login />} />
 
       {/* Admin Routes */}
       <Route
