@@ -329,7 +329,7 @@ const AddCar = () => {
           { label: 'Model', name: 'Model', placeholder: 'e.g., Swift, City, Innova' },
           { label: 'Chassis Number', name: 'chassisNumber', placeholder: 'e.g., MABKS46FXGK012345' },
           { label: 'Engine Number', name: 'engineNumber', placeholder: 'e.g., K15B1234567' },
-          { label: 'Color', name: 'color', placeholder: 'e.g., Red, Blue, White' },
+          { label: 'colour', name: 'color', placeholder: 'e.g., Red, Blue, White' },
           { label: 'Price (₹)', name: 'price', type: 'number', placeholder: 'e.g., 500000' },
           { label: 'Showroom Entry Date', name: 'showroomEntryDate', type: 'date' },
         ].map(({ label, name, type = 'text', placeholder }) => (
