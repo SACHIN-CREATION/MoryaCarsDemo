@@ -40,8 +40,7 @@ const Sidebar = () => {
       onMouseLeave={() => setIsExpanded(false)}
     >
       <div className="sidebar-header" >
-        {/* <span className="brand">🚗</span> */}
-                <span className="brand text-gold"><MdDirectionsCar /></span>
+        <span className="brand text-gold"><MdDirectionsCar /></span>
         {isExpanded && <span className="brand-label">Morya Cars</span>}
       </div>
 
@@ -49,6 +48,7 @@ const Sidebar = () => {
         {navItems.map(({ path, icon, label }) => (
           <NavLink
             to={path}
+            onClick={() => setIsExpanded(false)}
             key={path}
             className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}
           >
