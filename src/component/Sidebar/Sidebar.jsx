@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FaHome, FaCar, FaUser, FaFileAlt, FaTimes } from 'react-icons/fa';
@@ -18,14 +19,13 @@ const Sidebar = () => {
         { path: '/admin/dashboard', icon: <FaHome />, label: 'Dashboard' },
         { path: '/admin/view-cars', icon: <FaCar />, label: 'View Cars' },
         { path: '/admin/investments', icon: <FaFileAlt />, label: 'Investments' },
-        { path: '/admin/reports', icon: <FaFileAlt />, label: 'Reports' }
+        { path: '/admin/reports', icon: <FaFileAlt />, label: 'Reports' },
       ]
     : [
         { path: '/executive/dashboard', icon: <FaHome />, label: 'Dashboard' },
         { path: '/executive/add-car', icon: <FaCar />, label: 'Add Car' },
         { path: '/executive/view-cars', icon: <FaCar />, label: 'View Cars' },
-        { path: '/executive/kyc-upload', icon: <FaUser />, label: 'Buyer KYC' },
-        { path: '/executive/kyc-seller', icon: <FaUser />, label: 'Seller KYC' }
+        
       ];
 
   const handleLogout = () => {
@@ -40,7 +40,8 @@ const Sidebar = () => {
       onMouseLeave={() => setIsExpanded(false)}
     >
       <div className="sidebar-header" >
-        <span className="brand text-gold"><MdDirectionsCar /></span>
+       
+                 <span className="brand text-gold"><MdDirectionsCar /></span>
         {isExpanded && <span className="brand-label">Morya Cars</span>}
       </div>
 
@@ -48,7 +49,6 @@ const Sidebar = () => {
         {navItems.map(({ path, icon, label }) => (
           <NavLink
             to={path}
-            onClick={() => setIsExpanded(false)}
             key={path}
             className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}
           >
@@ -68,4 +68,6 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+
 
