@@ -1,13 +1,13 @@
 // src/components/DashboardExecutive/DashboardExecutive.jsx
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // ✅ Add this
+import { useNavigate } from 'react-router-dom';
 import { MdDirectionsCar } from 'react-icons/md';
 import './DashboardExecutive.css';
 
 const DashboardExecutive = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [allCars, setAllCars] = useState([]);
-  const navigate = useNavigate(); // ✅ Required to navigate on car click
+  const navigate = useNavigate();
 
   const stats = {
     carsAdded: allCars.length,
@@ -20,18 +20,30 @@ const DashboardExecutive = () => {
     setAllCars(storedCars);
   }, []);
 
-  const filteredCars = allCars.filter((car) =>
-    car.chassisNumber.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    car.engineNumber.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    car.carName.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const term = searchTerm.toLowerCase();
+
+  // Updated filtering logic: use Brand + Model as combined car name
+  const filteredCars = allCars.filter((car) => {
+    const combinedName = `${car.Brand || ''} ${car.Model || ''}`.toLowerCase();
+    return (
+      (car.chassisNumber && car.chassisNumber.toLowerCase().includes(term)) ||
+      (car.engineNumber && car.engineNumber.toLowerCase().includes(term)) ||
+      combinedName.includes(term)
+    );
+  });
+
 
   return (
     <div className="dashboard-executive">
       {/* Top Bar */}
       <div className="dashboard-topbar">
         <div className="dashboard-header">
-          <h2><span className="brand text-gold"> <MdDirectionsCar /></span> Executive Dashboard</h2>
+          <h2>
+            <span className="brand text-gold">
+              <MdDirectionsCar />
+            </span>{' '}
+            Executive Dashboard
+          </h2>
           <p>Welcome back! Here's your live update.</p>
         </div>
         <div className="user-profile">
@@ -81,8 +93,7 @@ const DashboardExecutive = () => {
         </div>
         <button
           className="add-car-button"
-{/*           onClick={() => (window.location.href = '/executive/add-car')} */}
-          onClick={() => navigate('/executive/add-car')}
+          onClick={() => (window.location.href = '/executive/add-car')}
         >
           <span>+</span> Add New Car
         </button>
@@ -97,26 +108,32 @@ const DashboardExecutive = () => {
               <div
                 className="car-card"
                 key={car.id}
-                onClick={() => navigate(`/executive/car/${car.id}`)} // ✅ Clicking goes to detailed page
+                onClick={() => navigate(`/executive/car/${car.id}`)}
                 style={{ cursor: 'pointer' }}
               >
                 <div className="car-image">
                   {car.photos && car.photos.length > 0 ? (
                     <img
                       src={car.photos[0]}
-                      alt={`Car ${car.carName}`}
+                      alt={`Car ${car.Brand} ${car.Model}`}
                       className="car-photo"
                     />
                   ) : (
-                    <p style={{ color: '#ccc', padding: '20px' }}>No Image Aniekt Test</p>
+                    <p style={{ color: '#ccc', padding: '20px' }}>No Image Available</p>
                   )}
                 </div>
                 <div className="car-details">
-                  <h4>{car.carName}</h4>
+                  <h4>{car.Brand} {car.Model}</h4>
                   <div className="car-specs">
-                    <p><span>Chassis:</span> {car.chassisNumber}</p>
-                    <p><span>Engine:</span> {car.engineNumber}</p>
-                    <p><span>Color:</span> {car.color}</p>
+                    <p>
+                      <span>Chassis:</span> {car.chassisNumber}
+                    </p>
+                    <p>
+                      <span>Engine:</span> {car.engineNumber}
+                    </p>
+                    <p>
+                      <span>Color:</span> {car.color}
+                    </p>
                   </div>
                   <div className="car-status in-stock">In Stock</div>
                 </div>
@@ -135,3 +152,4 @@ const DashboardExecutive = () => {
 };
 
 export default DashboardExecutive;
+
