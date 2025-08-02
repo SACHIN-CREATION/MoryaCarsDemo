@@ -34,7 +34,7 @@
         .photo-upload-btn {
           display: inline-block;
           padding: 10px 20px;
-          background: #007bff;
+          background: #d2d2d2;
           color: white;
           border: none;
           border-radius: 5px;
@@ -180,7 +180,6 @@
 
 .add-car-form {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 25px;
   position: relative;
   z-index: 1;
@@ -206,6 +205,11 @@
   font-size: 1.1rem;
   letter-spacing: 0.5px;
   min-height: 1.5em;
+}
+
+.labaleEdit {
+    margin-bottom: 2px !important;
+    
 }
 
 .form-group input,
@@ -374,3 +378,312 @@
     height: 50px;
   }
 }
+
+ /* Container for the whole add car form */
+
+.add-car-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fffefa;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
+/* Form Layout */
+.add-car-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Form groups for inputs */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #5a4700;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select,
+.form-group input[type="file"] {
+  padding: 8px 12px;
+  border: 1.5px solid #d4af37;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #3a3500;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group input[type="date"]:focus,
+.form-group select:focus,
+.form-group input[type="file"]:focus {
+  outline: none;
+  border-color: #a67c00;
+  box-shadow: 0 0 6px rgba(166, 124, 0, 0.5);
+}
+
+/* Error state */
+.error {
+  border-color: #d9534f !important;
+}
+
+.error-message {
+  color: #d9534f;
+  margin-top: 4px;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+/* Upload Photos Section */
+.photo-upload-btn {
+  display: inline-block;
+  padding: 8px 18px;
+  background: linear-gradient(90deg, #d4af37 0%, #a67c00 100%);
+  color: #191500;
+  font-weight: 700;
+  border-radius: 30px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s ease;
+  text-align: center;
+  width: max-content;
+}
+
+.photo-upload-btn:hover:not(.uploading) {
+  background: linear-gradient(90deg, #a67c00 0%, #d4af37 100%);
+}
+
+.photo-upload-btn.uploading {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+/* Photo preview grid */
+.photo-preview-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.photo-preview-item {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border: 2px solid #d4af37;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 6px rgba(212, 175, 55, 0.3);
+}
+
+.photo-preview-item img.photo-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-number {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  background: #a67c00;
+  color: #fffefa;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  user-select: none;
+}
+
+.remove-photo-btn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: #d9534f;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  line-height: 17px;
+  text-align: center;
+  padding: 0;
+  transition: background 0.3s ease;
+}
+
+.remove-photo-btn:hover {
+  background: #c9302c;
+}
+
+/* Documents Section */
+.kyc-documents-section {
+  background: #fffdfa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(212, 175, 55, 0.15);
+  border: 1.5px solid #edd97e;
+}
+
+.kyc-documents-section h3 {
+  font-weight: 700;
+  color: #a67c00;
+  margin-bottom: 18px;
+  letter-spacing: 0.03em;
+}
+
+.col-md-6.mb-4 {
+  padding: 0 10px;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.fw-semibold {
+  font-weight: 600;
+}
+
+.text-danger {
+  color: #d9534f !important;
+}
+
+/* Preview Container for Documents */
+.col-md-6.mb-4 > div {
+  position: relative;
+}
+
+.col-md-6.mb-4 embed,
+.col-md-6.mb-4 img {
+  width: 100%;
+  max-height: 160px;
+  border-radius: 9px;
+  background: #fff;
+  object-fit: contain;
+}
+
+.btn.btn-sm.btn-danger.position-absolute {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  z-index: 10;
+  padding: 3px 7px;
+  font-size: 0.8rem;
+}
+
+/* Checkbox label */
+.form-check-label {
+  cursor: pointer;
+}
+
+/* Submit button */
+.submit-btn {
+  background: linear-gradient(90deg, #d4af37 0%, #a67c00 100%);
+  color: #191500;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 40px;
+  padding: 14px 0;
+  border: none;
+  cursor: pointer;
+  margin-top: 30px;
+  width: 100%;
+  box-shadow: 0 6px 26px #d4af372e;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: linear-gradient(90deg, #a67c00 0%, #d4af37 100%);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* Mobile Responsive CSS */
+@media (max-width: 767px) {
+  /* Make the container padding smaller on small devices */
+  .add-car-container {
+    padding: 10px;
+    max-width: 100%;
+  }
+
+  /* Form groups take full width */
+  .form-group {
+    width: 100%;
+  }
+
+  /* For input/select expand full width */
+  .form-group input[type="text"],
+  .form-group input[type="number"],
+  .form-group input[type="date"],
+  .form-group select,
+  .form-group input[type="file"] {
+    width: 100%;
+  }
+
+  /* Document upload columns: make single column */
+  .col-md-6.mb-4 {
+    width: 100% !important;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Reduce some margin for better spacing */
+  .col-md-6.mb-4 {
+    margin-bottom: 1rem;
+  }
+
+  /* Photo preview grid: allow wrap properly with smaller images */
+  .photo-preview-grid {
+    gap: 8px;
+    justify-content: start;
+  }
+
+  .photo-preview-item {
+    width: 70px;
+    height: 70px;
+  }
+
+  /* Reduce photo number size on mobile */
+  .photo-number {
+    width: 16px;
+    height: 16px;
+    font-size: 0.65rem;
+    line-height: 16px;
+  }
+
+  /* Submit button full width no margin */
+  .submit-btn {
+    margin-top: 20px;
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+  
+  /* Document preview embed & image height reduce */
+  .col-md-6.mb-4 embed,
+  .col-md-6.mb-4 img {
+    max-height: 130px;
+  }
+
+  /* Adjust card padding */
+  .kyc-documents-section {
+    padding: 15px;
+  }
+}
+
